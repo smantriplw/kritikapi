@@ -1,3 +1,3 @@
-import process from 'node:process';
-
-process.stdout.write('Hello World!\n');
+import 'dotenv/config';
+import './Bootstrap/rest.boot.js';
+import './Bootstrap/igbot.boot.js';
