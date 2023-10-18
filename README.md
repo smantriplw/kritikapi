@@ -1,11 +1,13 @@
-## NodeJS Project Template
-It's just simple nodejs project template for me :>
+# Demokrasikan's API
 
-## devDeps
-1. ESLint
-2. Husky (hook)
-3. TypeScript + TSup (bundler)
-4. IsCI (detect env is ci or workspace), and isGitDirty (check the .git uncommited changes)
+API sederhana untuk memposting menfess dan menyampaikan kritikan serta saran dari anonim ke Instagram, dan WhatsApp yang telah ditentukan sebelumnya.
 
-## license
-MIT
+## Features
+1. Menfess (done)
+2. Kritik & Saran Sekolah (WIP)
+
+## Maintainers
+- [Hanif Dwy Putra S - @hansputera](https://github.com/hansputera)
+
+## License
+(c) MIT
