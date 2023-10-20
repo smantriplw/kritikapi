@@ -59,7 +59,7 @@ export const menfessRouter = (app: FastifyInstance) => {
 			}
 
 			user = {
-				username: usr.username,
+				username: '@' + usr.username,
 				profile_pic_url: usr.profile_pic_url,
 				full_name: usr.full_name,
 			};

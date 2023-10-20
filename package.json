@@ -44,6 +44,7 @@
     "envalid": "^8.0.0",
     "fastify": "^4.24.0",
     "instagram-private-api": "^1.45.3",
-    "p-queue": "^7.4.1"
+    "p-queue": "^7.4.1",
+    "quick.db": "^9.1.7"
   }
 }

@@ -3,6 +3,7 @@ import fastify from 'fastify';
 import cors from '@fastify/cors';
 import rateLimiter from '@fastify/rate-limit';
 import {menfessRouter} from '@/Routes/menfess.router.js';
+import {kritikRouter} from '@/Routes/kritik.router.js';
 
 async function restBoot() {
 	const app = fastify({
@@ -34,6 +35,7 @@ async function restBoot() {
 	});
 
 	menfessRouter(app);
+	kritikRouter(app);
 
 	await app.listen({
 		port: environments.PORT,

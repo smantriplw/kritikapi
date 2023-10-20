@@ -13,12 +13,12 @@ async function igBoot() {
 	const user = await ig.account.login(environments.igUsername, environments.igPassword);
 	consola.info('Instagram logged in as %s', user.username);
 
-	await ig.account.setBiography(`Menfess IG Otomatis, last boot: ${new Date().toLocaleDateString('id-ID', {
+	await ig.account.setBiography(`Menfess IG Otomatis (just for fun), aktif sejak ${new Date().toLocaleDateString('id-ID', {
 		day: '2-digit',
 		month: 'long',
 		hour: '2-digit',
 		minute: '2-digit',
-	}).replace('.', ':')}`);
+	}).replace('.', ':')}\n\nMade w/ ❤️ by @hanif.dwy.sembiring20`);
 
 	commonGlobals.ig = ig;
 }

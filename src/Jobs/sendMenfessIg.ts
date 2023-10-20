@@ -11,7 +11,7 @@ export const sendMenfessIg = async (username: string, text: string) => {
 			year: 'numeric',
 			hour: '2-digit',
 			minute: '2-digit',
-		}).replace('.', ':'),
+		}).replace('.', ':') + '\n\n#sman3palumenfess #menfess #smantipalu #smantipalumenfess',
 	});
 
 	return results;

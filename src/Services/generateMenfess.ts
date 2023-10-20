@@ -19,7 +19,7 @@ export const generateMenfessFrame = async (username: string, text: string): Prom
 	ctx.drawImage(backgroundFrame, 0, 0);
 
 	ctx.fillStyle = '#ffffff';
-	drawText(ctx as unknown as CanvasRenderingContext2D, '@' + username, {
+	drawText(ctx as unknown as CanvasRenderingContext2D, username, {
 		x: 220,
 		y: 115,
 		fontSize: 46,
