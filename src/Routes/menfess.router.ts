@@ -49,6 +49,10 @@ export const menfessRouter = (app: FastifyInstance) => {
 			profile_pic_url: '',
 		};
 
+		if (user.username.startsWith('@')) {
+			user.username = user.username.slice(1);
+		}
+
 		if (!randomName) {
 			const usr = await commonGlobals.ig?.user.usernameinfo(destination).catch(() => undefined);
 			if (!usr) {
