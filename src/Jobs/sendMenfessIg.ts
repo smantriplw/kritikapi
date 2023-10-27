@@ -5,7 +5,7 @@ export const sendMenfessIg = async (username: string, text: string) => {
 	const menfess = await generateMenfessFrame(username, text.trim());
 	const results = await commonGlobals.ig?.publish.photo({
 		file: menfess,
-		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + username + ' pada ' + new Date().toLocaleDateString('id-ID', {
+		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + username.replace(/@/g, '') + ' pada ' + new Date().toLocaleDateString('id-ID', {
 			day: '2-digit',
 			month: 'long',
 			year: 'numeric',
