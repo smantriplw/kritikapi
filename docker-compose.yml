@@ -5,6 +5,7 @@ services:
       - 1.1.1.1
       - 1.0.0.1
     build: .
+    image: hansputera/smantikritikapi
     ports:
       - "5130:5130"
     volumes:
@@ -16,11 +17,11 @@ services:
     deploy:
       resources:
         limits:
-          cpus: 1
+          cpus: '1'
           memory: 1024M
         reservations:
           memory: 512M
-          cpus: 0.5
+          cpus: '0.5'
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:5130/health"]
       interval: 1m30s
