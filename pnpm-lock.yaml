@@ -38,9 +38,15 @@ dependencies:
   fastify:
     specifier: ^4.24.0
     version: 4.24.0
+  fastify-healthcheck:
+    specifier: ^4.4.0
+    version: 4.4.0
   instagram-private-api:
     specifier: ^1.45.3
     version: 1.45.3
+  ntp-time-sync:
+    specifier: ^0.3.1
+    version: 0.3.1
   p-queue:
     specifier: ^7.4.1
     version: 7.4.1
@@ -363,6 +369,13 @@ packages:
       fastify-plugin: 4.5.1
       ms: 2.1.3
       tiny-lru: 11.2.3
+    dev: false
+
+  /@fastify/under-pressure@8.3.0:
+    resolution: {integrity: sha512-ap1EePB9vHm8uQLM0nnaOeIMBLooNmAMTnccavBRwaXmu+acJFuSEQRVdMGRkW6viFDhdo5RGTcHzMBQyrucEA==}
+    dependencies:
+      '@fastify/error': 3.4.0
+      fastify-plugin: 4.5.1
     dev: false
 
   /@fastify/websocket@8.2.0:
@@ -1528,6 +1541,13 @@ packages:
     resolution: {integrity: sha512-cIusKBIt/R/oI6z/1nyfe2FvGKVTohVRfvkOhvx0nCEW+xf5NoCXjAHcWp93uOUBchzYcsvPlrapAdX1uW+YGg==}
     dev: false
 
+  /fastify-healthcheck@4.4.0:
+    resolution: {integrity: sha512-goP2YYBp+inqrEFixZDxsoxFN8h219ZOzCFv1sMpleaxwbo5CmoLrVzrja6vCMa1LNx6aEvOcGaqLX5Oev1q/A==}
+    engines: {node: '>=14.15.0'}
+    dependencies:
+      '@fastify/under-pressure': 8.3.0
+    dev: false
+
   /fastify-plugin@4.5.1:
     resolution: {integrity: sha512-stRHYGeuqpEZTL1Ef0Ovr2ltazUT9g844X5z/zEBFLG8RYlpDiOCIG+ATvYEp+/zmc7sN29mcIMp8gvYplYPIQ==}
     dev: false
@@ -2179,6 +2199,18 @@ packages:
     dependencies:
       path-key: 3.1.1
     dev: true
+
+  /ntp-packet-parser@0.3.1:
+    resolution: {integrity: sha512-bzg5oAy4zNrsyFkGPBNCG2EY63mTFOVdndWpakePs37oSZgaKe+l9HuVGn9oR4IfYcp0d9vYXVPDY36rW8CwTQ==}
+    engines: {node: ^14 || ^16 || ^18}
+    dev: false
+
+  /ntp-time-sync@0.3.1:
+    resolution: {integrity: sha512-j0UBn82TPv7zBmhGdFXX15Gu1YO6Fehf3B+2UHSjhltrGjlvWjmQ4W9bKqGCAkLF+B9tn2014mxc9NaCop+WcQ==}
+    engines: {node: ^14 || ^16 || ^18}
+    dependencies:
+      ntp-packet-parser: 0.3.1
+    dev: false
 
   /oauth-sign@0.9.0:
     resolution: {integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==}

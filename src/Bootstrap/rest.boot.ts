@@ -2,6 +2,7 @@ import {environments} from '@/config.js';
 import fastify from 'fastify';
 import cors from '@fastify/cors';
 import rateLimiter from '@fastify/rate-limit';
+import fastifyHealthCheck from 'fastify-healthcheck';
 import {menfessRouter} from '@/Routes/menfess.router.js';
 import {kritikRouter} from '@/Routes/kritik.router.js';
 
@@ -14,6 +15,8 @@ async function restBoot() {
 	await app.register(cors, {
 		origin: true,
 	});
+
+	await app.register(fastifyHealthCheck);
 
 	app.addContentTypeParser('application/json', {parseAs: 'string'}, (req, body, done) => {
 		try {

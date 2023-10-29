@@ -1,11 +1,13 @@
 import {commonGlobals} from '@/Globals/common.js';
 import {generateMenfessFrame} from '@/Services/generateMenfess.js';
+import {getDate} from '@/Services/getDate.js';
 
 export const sendMenfessIg = async (username: string, text: string) => {
 	const menfess = await generateMenfessFrame(username, text.trim());
+	const now = await getDate();
 	const results = await commonGlobals.ig?.publish.photo({
 		file: menfess,
-		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + username.replace(/@/g, '') + ' pada ' + new Date().toLocaleDateString('id-ID', {
+		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + username.replace(/@/g, '') + ' pada ' + now.toLocaleDateString('id-ID', {
 			day: '2-digit',
 			month: 'long',
 			year: 'numeric',
