@@ -22,8 +22,8 @@ async function igBoot() {
 	consola.info('Instagram logged in as %s', user.username);
 
 	await ig.account.setBiography(`Menfess IG Otomatis (just for fun), aktif sejak ${dayJs().locale('id').tz('Asia/Makassar').format(
-		'DD MMMM YYYY [HH:mm:ss]',
-	)}\n\nMade w/ ❤️ by @hanif.dwy.sembiring20`);
+		'DD MMMM YYYY, HH:mm:ss',
+	)} WITA \n\nMade w/ ❤️ by @hanif.dwy.sembiring20`);
 
 	commonGlobals.ig = ig;
 }
