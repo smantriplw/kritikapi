@@ -1,19 +1,14 @@
+import dayJs from 'dayjs';
 import {commonGlobals} from '@/Globals/common.js';
 import {generateMenfessFrame} from '@/Services/generateMenfess.js';
-import {getDate} from '@/Services/getDate.js';
 
-export const sendMenfessIg = async (username: string, text: string) => {
+export const sendMenfessIg = async (username: string, text: string, randomName = false) => {
 	const menfess = await generateMenfessFrame(username, text.trim());
-	const now = await getDate();
 	const results = await commonGlobals.ig?.publish.photo({
 		file: menfess,
-		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + username.replace(/@/g, '') + ' pada ' + now.toLocaleDateString('id-ID', {
-			day: '2-digit',
-			month: 'long',
-			year: 'numeric',
-			hour: '2-digit',
-			minute: '2-digit',
-		}).replace('.', ':') + '\n\n#sman3palumenfess #menfess #smantipalu #smantipalumenfess',
+		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk (@)' + (randomName ? username.replace(/@/g, '') : username) + ' pada ' + dayJs().locale('id').tz('Asia/Makassar').format(
+			'DD MMMM YYYY [HH:mm:ss]',
+		) + '\n\n#sman3palumenfess #menfess #smantipalu #smantipalumenfess',
 	});
 
 	return results;

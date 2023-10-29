@@ -77,7 +77,7 @@ export const menfessRouter = (app: FastifyInstance) => {
 		}
 
 		await commonGlobals.queue.add(async () => {
-			await sendMenfessIg(user.username, message.trim());
+			await sendMenfessIg(user.username, message.trim(), Boolean(randomName));
 		});
 
 		await reply.status(200).send(JSON.stringify({

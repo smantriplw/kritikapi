@@ -26,6 +26,9 @@ dependencies:
   consola:
     specifier: ^3.2.3
     version: 3.2.3
+  dayjs:
+    specifier: ^1.11.10
+    version: 1.11.10
   desm:
     specifier: ^1.3.0
     version: 1.3.0
@@ -44,9 +47,6 @@ dependencies:
   instagram-private-api:
     specifier: ^1.45.3
     version: 1.45.3
-  ntp-time-sync:
-    specifier: ^0.3.1
-    version: 0.3.1
   p-queue:
     specifier: ^7.4.1
     version: 7.4.1
@@ -1182,6 +1182,10 @@ packages:
       assert-plus: 1.0.0
     dev: false
 
+  /dayjs@1.11.10:
+    resolution: {integrity: sha512-vjAczensTgRcqDERK0SR2XMwsF/tSvnvlv6VcF2GIhg6Sx4yOIt/irsr1RDJsKiIyBzJDpCoXiWWq28MqH2cnQ==}
+    dev: false
+
   /debug@4.3.4:
     resolution: {integrity: sha512-PRWFHuSU3eDtQJPvnNY7Jcket1j0t5OuOsFzPPzsekD52Zl8qUfFIPEiswXqIvHWGVHOgX+7G/vCNNhehwxfkQ==}
     engines: {node: '>=6.0'}
@@ -2199,18 +2203,6 @@ packages:
     dependencies:
       path-key: 3.1.1
     dev: true
-
-  /ntp-packet-parser@0.3.1:
-    resolution: {integrity: sha512-bzg5oAy4zNrsyFkGPBNCG2EY63mTFOVdndWpakePs37oSZgaKe+l9HuVGn9oR4IfYcp0d9vYXVPDY36rW8CwTQ==}
-    engines: {node: ^14 || ^16 || ^18}
-    dev: false
-
-  /ntp-time-sync@0.3.1:
-    resolution: {integrity: sha512-j0UBn82TPv7zBmhGdFXX15Gu1YO6Fehf3B+2UHSjhltrGjlvWjmQ4W9bKqGCAkLF+B9tn2014mxc9NaCop+WcQ==}
-    engines: {node: ^14 || ^16 || ^18}
-    dependencies:
-      ntp-packet-parser: 0.3.1
-    dev: false
 
   /oauth-sign@0.9.0:
     resolution: {integrity: sha512-fexhUFFPTGV8ybAtSIGbV6gOkSv8UtRbDBnAyLQw4QPKkgNlsH2ByPGtMUqdWkos6YCRmAqViwgZrJc/mRDzZQ==}
