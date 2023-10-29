@@ -11,5 +11,7 @@ export const commonGlobals: {
 	queue: new PQueue({
 		concurrency: 3,
 	}),
-	db: new QuickDB(),
+	db: new QuickDB({
+		filePath: './databases/json.sqlite',
+	}),
 };

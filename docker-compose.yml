@@ -10,7 +10,7 @@ services:
       - "5130:5130"
     volumes:
       - /etc/localtime:/etc/localtime:ro
-      - sqliteFile:./json.sqlite:rw
+      - kritikDatabases:/app/databases:rw
     env_file:
       - .env
     restart: "unless-stopped"
@@ -28,3 +28,6 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+
+volumes:
+  kritikDatabases:
