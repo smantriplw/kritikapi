@@ -1,9 +1,9 @@
-import {type IgApiClient} from 'instagram-private-api';
+import type {IgApiClientRealtime} from 'instagram_mqtt';
 import PQueue from 'p-queue';
 import {QuickDB} from 'quick.db';
 
 export const commonGlobals: {
-	ig: IgApiClient | undefined;
+	ig: IgApiClientRealtime | undefined;
 	queue: PQueue;
 	db: QuickDB;
 } = {

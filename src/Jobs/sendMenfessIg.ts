@@ -8,7 +8,13 @@ export const sendMenfessIg = async (username: string, text: string, randomName =
 		file: menfess,
 		caption: 'Hai SMANTIFess! Ada menfess atau pesan baru nih untuk ' + (randomName ? username.replace(/@/g, '') : username) + ' pada ' + dayJs().locale('id').tz('Asia/Makassar').format(
 			'DD MMMM YYYY HH:mm:ss',
-		) + 'WITA \n\n#sman3palumenfess #menfess #smantipalu #smantipalumenfess',
+		) + ' WITA \n\n#sman3palumenfess #menfess #smantipalu #smantipalumenfess',
+	});
+
+	await commonGlobals.db.set(`posts.${results!.media.id}`, {
+		text: results?.media.caption,
+		date: Date.now(),
+		deleted: false,
 	});
 
 	return results;

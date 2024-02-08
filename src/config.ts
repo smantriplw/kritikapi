@@ -1,4 +1,4 @@
-import {bool, cleanEnv, port, str} from 'envalid';
+import {bool, cleanEnv, port, str, num} from 'envalid';
 
 export const environments = cleanEnv(process.env, {
 	// eslint-disable-next-line @typescript-eslint/naming-convention
@@ -6,4 +6,11 @@ export const environments = cleanEnv(process.env, {
 	igPassword: str(),
 	igUsername: str(),
 	preloginFlow: bool(),
+	postDeletionLimitsPerUser: num({
+		default: 2,
+	}),
 });
+
+export const regexes = {
+	postDeletionRequestMessage: /^(req(uest)?\s+hapus(in)?(\s+don(g)?)?)$/gi,
+};
