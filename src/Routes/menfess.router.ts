@@ -1,6 +1,7 @@
 /* eslint-disable @typescript-eslint/naming-convention */
 import {commonGlobals} from '@/Globals/common.js';
 import {sendMenfessIg} from '@/Jobs/sendMenfessIg.js';
+import {detectBadwords} from '@/Services/generateMenfess.js';
 import {type FastifyInstance} from 'fastify';
 
 export const menfessRouter = (app: FastifyInstance) => {
@@ -41,6 +42,13 @@ export const menfessRouter = (app: FastifyInstance) => {
 				message: 'WA Service currently not available',
 			}));
 			return;
+		}
+
+		const badwordsMatch = await detectBadwords(message);
+		if (badwordsMatch.length) {
+			await reply.status(400).send(JSON.stringify({
+				message: 'Your message contains blacklisted words',
+			}));
 		}
 
 		let user = {

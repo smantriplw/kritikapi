@@ -40,7 +40,8 @@ export const deletePost = async (requester: UserDeletionData & {id: string}, pos
 
 		await commonGlobals.db.set(`posts.${postId}.deleted`, true);
 
-		const results = await commonGlobals.ig?.media.delete({
+		// eslint-disable-next-line @typescript-eslint/no-unsafe-assignment
+		const results = await commonGlobals.ig?.media?.delete({
 			mediaId: postId,
 			mediaType: 'PHOTO',
 		});
