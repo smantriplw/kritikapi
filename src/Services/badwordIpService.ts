@@ -6,6 +6,6 @@ export const addBadwordCountToIp = async (ip: string) => {
 };
 
 export const checkLegalityBadwordByIp = async (ip: string) => {
-	const ipCount = await commonGlobals.db.get<number>(`badwordCountByIp.${ip}`) ?? 0;
-	return ipCount >= environments.banIpIfBadwordReach;
+	const ipCount = await commonGlobals.db.get<number>(`badwordCountByIp.${ip}`);
+	return (ipCount ?? 0) >= environments.banIpIfBadwordReach;
 };

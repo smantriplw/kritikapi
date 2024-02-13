@@ -35,8 +35,8 @@ export const menfessRouter = (app: FastifyInstance) => {
 			},
 		},
 	}, async (req, reply) => {
-		const isLegalToPost = await checkLegalityBadwordByIp(req.ip);
-		if (!isLegalToPost) {
+		const isIlegalToPost = await checkLegalityBadwordByIp(req.ip);
+		if (isIlegalToPost) {
 			await reply.status(401).send({
 				message: 'Banned, thanks',
 			});
