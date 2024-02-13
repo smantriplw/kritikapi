@@ -9,6 +9,9 @@ export const environments = cleanEnv(process.env, {
 	postDeletionLimitsPerUser: num({
 		default: 2,
 	}),
+	banIpIfBadwordReach: num({
+		default: 2,
+	}),
 });
 
 export const regexes = {

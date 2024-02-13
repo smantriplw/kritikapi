@@ -3,20 +3,24 @@ import {GlobalFonts, createCanvas, loadImage} from '@napi-rs/canvas';
 import {drawText} from 'canvas-txt';
 import desm from 'desm';
 import {readFile} from 'fs/promises';
+import BadwordInstance from 'bad-words';
 import path from 'path';
 
-export const detectBadwords = async (sentence: string): Promise<string[]> => {
+export const detectBadwords = async (sentence: string): Promise<boolean> => {
 	const badwords = await readFile(path.resolve(desm(import.meta.url), '..', 'resources', 'badwords.json'), 'utf8').catch(() => undefined);
 	if (!badwords?.length) {
-		return [];
+		return false;
 	}
 
 	const badwordsJson: string[] = safeJsonParse(badwords, []);
 	if (!badwordsJson.length) {
-		return [];
+		return false;
 	}
 
-	return sentence.split(/\s+/g).filter(word => badwordsJson.includes(word.toLowerCase()));
+	const badwordInstance = new BadwordInstance();
+	badwordInstance.addWords(...badwordsJson);
+
+	return badwordInstance.isProfane(sentence.trim());
 };
 
 export const generateMenfessFrame = async (username: string, text: string): Promise<Buffer> => {

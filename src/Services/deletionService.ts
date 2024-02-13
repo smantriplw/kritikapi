@@ -26,6 +26,7 @@ export const getDeletionDataUser = async (id: string) => {
 export const deletePost = async (requester: UserDeletionData & {id: string}, postId: string): Promise<boolean> => {
 	// Reset todayDeletionRequests if the lastUpdate (in day) <= now (day)
 	const dateLastUpdate = dayjs(requester.lastUpdate);
+
 	if (requester.todayDeletionRequests >= 0 && dateLastUpdate.diff(new Date(), 'days') >= 1) {
 		requester.todayDeletionRequests = 0;
 		await commonGlobals.db.set(`deletions_user.${requester.id}.todayDeletionRequests`, 0);
